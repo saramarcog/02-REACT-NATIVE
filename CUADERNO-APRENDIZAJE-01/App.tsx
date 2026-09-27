@@ -1,21 +1,24 @@
-import { Pressable, StyleSheet, Text, TextInput, View } from 'react-native';
+import { Image, Pressable, StyleSheet, Text, View } from 'react-native';
 
 export default function App() {
   return (
     <View style={styles.container}>
       <View style={styles.card}>
-      <Text style={styles.title}>Bienvenido</Text>
-      <Text style={styles.subtitle}>Introduce tus datos</Text>
+        <Image source={{ uri: 'https://picsum.photos/600/400' }} style={styles.image} />
 
-      <TextInput style={styles.input} placeholder="Correo electrónico" />
-      <TextInput style={styles.input} placeholder="Contraseña" secureTextEntry />
+        <View style={styles.content}>
+          <Text style={styles.category}>OFERTA</Text>
+          <Text style={styles.title}>Auriculares Wireless</Text>
+          <Text style={styles.rating}>⭐ 4.8</Text>
 
-      <Pressable style={styles.button}>
-        <Text style={styles.buttonText}>INICIAR SESIÓN</Text>
-      </Pressable>
-
-      <Text style={styles.register}>¿No tienes cuenta? Regístrate</Text>
-    </View>
+          <View style={styles.bottom}>
+            <Text style={styles.price}>89,99 €</Text>
+            <Pressable style={styles.button}>
+              <Text style={styles.buttonText}>AÑADIR</Text>
+            </Pressable>
+          </View>
+        </View>
+      </View>
     </View>
   );
 }
@@ -24,45 +27,56 @@ const styles = StyleSheet.create({
   container: {
     flex: 1,
     justifyContent: 'center',
-    padding: 28,
+    padding: 24,
     backgroundColor: '#051120',
   },
   card: {
     backgroundColor: 'white',
-    padding: 28,
-    borderRadius: 25,
-
-    },
+    borderRadius: 20,
+    overflow: 'hidden',
+  },
+  image: {
+    width: '100%',
+    height: 220,
+  },
+  content: {
+    padding: 20,
+  },
+  category: {
+    color: '#ab0000',
+    fontWeight: 'bold',
+    fontSize: 12,
+    backgroundColor: '#fee2e2',
+    padding: 8,
+    borderRadius: 20,
+    alignSelf: 'flex-start',
+  },
   title: {
-    fontSize: 30,
+    marginTop: 6,
+    fontSize: 24,
     fontWeight: 'bold',
   },
-  subtitle: {
-    marginTop: 8,
-    marginBottom: 28,
-    color: '#64748b',
+  rating: {
+    marginTop: 10,
   },
-  input: {
-    backgroundColor: '#f2f8fd',
-    padding: 16,
-    borderRadius: 12,
-    marginBottom: 14,
-    color: '#64748b',
+  bottom: {
+    flexDirection: 'row',
+    justifyContent: 'space-between',
+    alignItems: 'center',
+    marginTop: 24,
+  },
+  price: {
+    fontSize: 25,
+    fontWeight: 'bold',
   },
   button: {
-    marginTop: 8,
-    backgroundColor: '#2563eb',
-    padding: 16,
-    borderRadius: 12,
+    backgroundColor: '#111827',
+    paddingVertical: 12,
+    paddingHorizontal: 18,
+    borderRadius: 10,
   },
   buttonText: {
-    textAlign: 'center',
     color: 'white',
     fontWeight: 'bold',
-  },
-  register: {
-    textAlign: 'center',
-    marginTop: 22,
-    color: '#64748b',
   },
 });
